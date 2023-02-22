@@ -1,49 +1,47 @@
-import { 
-  GalleryItem,
-  GalleryImage,
-  GalleryInfo,
-  GalleryInfoItem,
-} from './ImageGalleryItem.styled';
-import { FcLike } from "react-icons/fc";
-import { ImEye } from "react-icons/im";
-import { FaComments } from "react-icons/fa";
-import { MdOutlineFileDownload } from "react-icons/md";
+
+import './ImageGalleryItem.styled.css';
+import { TiThumbsUp } from "react-icons/ti";
+import { MdOutlineSettingsAccessibility } from "react-icons/md";
+import { MdOutlineSpeakerNotes } from "react-icons/md";
+import { MdOutlineIosShare } from "react-icons/md";
+
 
 import PropTypes from 'prop-types';
 
-export const ImageGalleryItem = ({ images, onSelect }) => {
+export const ImageGalleryItem = ({ images }) => {
   return images.map((image) => (
-      <GalleryItem className="photo-card" key={image.id}>        
-          <GalleryImage
+      <li className="photo-card" key={image.id}>
+        <a className="img-wrap" href={image.largeImageURL}>
+          <img
           className='image'
           src={image.webformatURL}
           alt={image.tags}
-          onClick={() => onSelect(image.largeImageURL, image.tags)}
           loading="lazy"
           />
-          <GalleryInfo className='info'>
-            <GalleryInfoItem className='info__item'>
+        </a>
+        <div className='info'>
+            <p className='info__item'>
               <b>Likes</b>
-              <FcLike style={{ width: 14, height: 14 }} />              
+              <TiThumbsUp style={{ width: 14, height: 14, color: '#006400'} } />              
               {image.likes}
-            </GalleryInfoItem>
-            <GalleryInfoItem className='info__item'>
+            </p>
+            <p className='info__item'>
               <b>Views</b>
-              <ImEye style={{ width: 14, height: 14, color: "lightgreen"}} />              
+              <MdOutlineSettingsAccessibility style={{ width: 14, height: 14, color: '#006400'}} />              
               {image.views}
-            </GalleryInfoItem>
-            <GalleryInfoItem className='info__item'>
+            </p>
+            <p className='info__item'>
               <b>Comments</b>
-              <FaComments style={{ width: 14, height: 14, color: "lightblue"}} />              
+              <MdOutlineSpeakerNotes style={{ width: 14, height: 14, color: '#006400'}} />              
               {image.comments}
-            </GalleryInfoItem>
-            <GalleryInfoItem className='info__item'>
+            </p>
+            <p className='info__item'>
               <b>Downloads</b>
-              <MdOutlineFileDownload style={{ width: 14, height: 14, color: "yellow"}} />              
+              <MdOutlineIosShare style={{ width: 14, height: 14, color: '#006400'}} />              
               {image.downloads}
-            </GalleryInfoItem>
-          </GalleryInfo>        
-      </GalleryItem>  
+            </p>
+          </div>
+      </li>  
   ));
 };
 
