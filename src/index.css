@@ -1,18 +1,13 @@
 @import-normalize;
-/* bring in normalize.css styles */
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  color: #212121;
+  background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(0deg, rgb(168, 222, 255) 0%, rgb(226, 244, 255) 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  /* background-position: center; */
 }
 
 code {
@@ -20,24 +15,19 @@ code {
     monospace;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
+html {
+  box-sizing: border-box;
+  width: 100vw;
 }
 
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-img {
+img,
+a {
   display: block;
   max-width: 100%;
   height: auto;
